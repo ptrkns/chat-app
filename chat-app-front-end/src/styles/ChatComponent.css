@@ -1,0 +1,71 @@
+.ChatContainer-Parent {
+    display: grid;
+    grid-template-rows: 10% 70% 20%;
+    height: 100vh;
+}
+
+.ChatContainer-Header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2vh 2vw;
+    background-color: white;
+    font-size: 1.5em;
+}
+
+.ChatContainer-Header button {
+    width: 15vw;
+    height: 6vh;
+    font-size: 1em;
+    color: lightgray;
+    transition: 350ms;
+}
+
+.ChatContainer-Header button:hover {
+    border-color: red;
+    background-color: red;
+    color: white;
+    transition: 350ms;
+}
+
+.ChatContainer-Input {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-top: 10px;
+    padding: 2vh 2vw;
+    background-color: white;
+}
+
+.ChatContainer-Input textarea {
+    width: 80%;
+    height: 100%;
+    padding: 2vh 1vw;
+    resize: none;
+    font-size: 1.5em;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+}
+
+.ChatContainer-Input button {
+    width: 17%;
+    height: 40%;
+    font-size: 1.5em;
+    background-color: rgb(170, 170, 255);
+    border-color: rgb(170, 170, 255);
+    color: white;
+    transition: 350ms;
+}
+
+.ChatContainer-Input button:hover {
+    background-color: rgb(90, 90, 255);
+    border-color: rgb(90, 90, 255);
+    transition: 350ms;
+}
+
+button {
+    border: 2px solid lightgrey;
+    border-radius: 5px;
+}

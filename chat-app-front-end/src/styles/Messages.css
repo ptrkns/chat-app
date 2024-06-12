@@ -1,0 +1,71 @@
+.Message-Container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 5vh 2vw;
+}
+
+.sentMessage {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    max-width: 40vw;
+    position: relative;
+}
+
+.receivedMessage {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    max-width: 40vw;
+    position: relative;
+}
+
+.sentMessage-Content {
+    width: 100%;
+    background-color: lightskyblue;
+    border-radius: 20px;
+    margin: 0vh 1vw;
+    padding: 0vh 1vw;
+}
+
+.receivedMessage-Content {
+    width: 100%;
+    background-color: lightgray;
+    border-radius: 20px;
+    margin: 0vh 1vw;
+    padding: 0vh 1vw;
+}
+
+.UserName {
+    font-weight: bold;
+}
+
+.Message {
+    text-align: justify;
+}
+
+@media (max-width: 700px) {
+    img {
+        width: 12vw;
+        height: 12vw;
+    }
+}
+
+@media (min-width: 701px) and (max-width: 1000px) {
+    img {
+        width: 10vw;
+        height: 10vw;
+    }
+}
+
+@media (min-width: 1001px) {
+    img {
+        width: 5vw;
+        height: 5vw;
+    }
+}
