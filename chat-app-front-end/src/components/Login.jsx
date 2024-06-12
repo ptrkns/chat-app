@@ -23,7 +23,10 @@ function Login() {
                 <input
                   required
                   type='text'
+                  name='username'
+                  id='username'
                   placeholder='Enter a unique username'
+                  autoComplete='username'
                   onChange={(e) => setUserName(e.target.value)}
                 ></input>
                 <button type='submit'>Login</button>

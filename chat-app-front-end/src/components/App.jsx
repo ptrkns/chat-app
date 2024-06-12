@@ -1,11 +1,11 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import './App.css';
+import '../styles/App.css';
 
-import { UserProvider } from './components/UserContext.jsx';
-import Login from './components/Login.jsx';
-import ChatComponent from './components/ChatComponent';
+import { UserProvider } from './UserContext.jsx';
+import Login from './Login.jsx';
+import ChatComponent from './ChatComponent.jsx';
 
 function App() {
 
