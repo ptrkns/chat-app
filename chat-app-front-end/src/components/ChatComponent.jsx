@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../styles/ChatComponent.css';
 import Message from './Message.jsx';
 import UserContext from './UserContext';
@@ -8,14 +9,19 @@ import socketIOClient from 'socket.io-client';
 function ChatComponent() {
 
     const { userName } = useContext(UserContext);
+    const navigate = useNavigate();
     const socketIO = socketIOClient('http://localhost:3001');
     const [chatMessages, setChatMessages] = useState([]);
     const [message, setMessage] = useState('');
-
     const currentChat = chatMessages.map((chatMessages, index) => {
         if(chatMessages.user === userName) { return <Message type='sent' key={index} userName={chatMessages.user} message={chatMessages.message}/>; }
         else { return <Message type='received' key={index} userName={chatMessages.user} message={chatMessages.message}/>; }
     });
+
+    useEffect(() => {
+        if(!userName) { navigate('/'); }
+        else return;
+    }, [userName]);
 
     useEffect(() => {
         socketIO.on('chat', (m) => { setChatMessages(m); });
