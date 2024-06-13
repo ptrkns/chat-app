@@ -39,6 +39,13 @@ function ChatComponent() {
         setMessage('');
     };
 
+    const handleKeyDown = (e) => {
+        if(e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault();
+            sendMessage(e);
+        }
+    }
+
     return (
         <>
             <div className='ChatContainer-Parent'>
@@ -50,7 +57,7 @@ function ChatComponent() {
                 <div className='ChatContainer-Body'> {currentChat} </div>
 
                 <form className='ChatContainer-Input' onSubmit={sendMessage}>
-                    <textarea required value={message} onChange={(e) => setMessage(e.target.value)}/>
+                    <textarea required value={message} onChange={(e) => setMessage(e.target.value)} onKeyDown={handleKeyDown}/>
                     <button type='submit'>Send</button>
                 </form>
             </div>
