@@ -8,29 +8,30 @@ import socketIOClient from 'socket.io-client';
 function ChatComponent() {
 
     const { userName } = useContext(UserContext);
-    const socketio = socketIOClient('http://localhost:3001');
-    const [chat, setChat] = useState([]);
+    const socketIO = socketIOClient('http://localhost:3001');
+    const [chatMessages, setChatMessages] = useState([]);
     const [message, setMessage] = useState('');
-    useEffect(() => {
-        socketio.on('chat', (messages) => {
-            setChat(messages);
-        });
+
+    const currentChat = chatMessages.map((chatMessages, index) => {
+        if(chatMessages.user === userName) { return <Message type='sent' key={index} userName={chatMessages.user} message={chatMessages.message}/>; }
+        else { return <Message type='received' key={index} userName={chatMessages.user} message={chatMessages.message}/>; }
     });
 
-    const sendToSocket = (chat) => {
-        socketio.emit('chat', chat);
-    }
+    useEffect(() => {
+        socketIO.on('chat', (m) => { setChatMessages(m); });
+    }, [chatMessages]);
 
-    const sendMessage = () => {
-        addMessage({message});
+    const sendToSocket = (chat) => { socketIO.emit('chat', chat); };
+
+    const sendMessage = (e) => {
+        e.preventDefault();
+        const newChat = {...{message}, user: userName}
+
+        setChatMessages([...chatMessages, newChat]);
+        sendToSocket([...chatMessages, newChat]);
+
         setMessage('');
-    }
-
-    const addMessage = (message) => {
-        const newChat = {...message, user: userName}
-        setChat([...chat, newChat]);
-        sendToSocket([...chat, newChat]);
-    }
+    };
 
     return (
         <>
@@ -40,24 +41,15 @@ function ChatComponent() {
                     <Link to='/' className='Link-Button'>Log out</Link>
                 </div>
 
-                <div className='ChatContainer-Body'>
-                    {chat.map((chat, index) => {
-                        if(chat.user === userName) {
-                            return <Message type='sent' key={index} userName={chat.user} message={chat.message}/>
-                        }
-                        else {
-                            return <Message type='received' key={index} userName={chat.user} message={chat.message}/>
-                        }
-                    })}
-                </div>
+                <div className='ChatContainer-Body'> {currentChat} </div>
 
-                <div className='ChatContainer-Input'>
-                    <textarea onChange={(e) => setMessage(e.target.value)}/>
-                    <button onClick={sendMessage}>Send</button>
-                </div>
+                <form className='ChatContainer-Input' onSubmit={sendMessage}>
+                    <textarea required value={message} onChange={(e) => setMessage(e.target.value)}/>
+                    <button type='submit'>Send</button>
+                </form>
             </div>
         </>
-    )
+    );
 };
 
 export default ChatComponent;
