@@ -14,17 +14,21 @@
     font-size: 1.5em;
 }
 
+.ChatContainer-Header > p:hover {
+    cursor: default;
+}
+
 .ChatContainer-Header > .Link-Button {
     padding: 1.5vh 2vw;
     text-decoration: none;
     font-size: 1em;
-    background-color: rgb(255, 226, 226);
-    color: red;
+    background-color: rgb(250, 250, 250);
+    color: rgb(255, 100, 100);
     transition: 350ms;
 }
 
 .ChatContainer-Header > .Link-Button:hover {
-    background-color: red;
+    background-color: rgb(255, 100, 100);
     color: white;
     transition: 350ms;
 }
@@ -34,44 +38,89 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
-    overflow: scroll;
+    background-color: rgb(250, 250, 250);
     overflow-x: hidden;
 }
 
-.ChatContainer-Input {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: space-between;
-    margin-top: 10px;
-    padding: 2vh 2vw;
-    background-color: white;
-}
-
-.ChatContainer-Input textarea {
-    width: 80%;
-    height: 100%;
-    padding: 2vh 1vw;
-    resize: none;
-    font-size: 1.5em;
-    border: 1px solid lightgrey;
-    border-radius: 5px;
-}
-
-.ChatContainer-Input button {
-    padding: 1.5vh 5vw;
-    font-size: 1.5em;
-    background-color: rgb(170, 170, 255);
-    color: white;
-    transition: 350ms;
-}
-
 .ChatContainer-Input button:hover {
-    background-color: rgb(90, 90, 255);
+    cursor: pointer;
+    background-color: rgb(100, 100, 200);
     transition: 350ms;
 }
 
 button, .ChatContainer-Header > .Link-Button {
     border: none;
     border-radius: 5px;
+}
+
+@media (max-width: 1000px) {
+    .ChatContainer-Input {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+        margin-top: 10px;
+        padding: 2vh 2vw;
+        background-color: white;
+    }
+
+    .ChatContainer-Input textarea {
+        width: 75%;
+        height: 50%;
+        padding: 1.5vh 2vw;
+        resize: none;
+        font-size: 1.5em;
+        border: 1px solid lightgrey;
+        border-radius: 5px;
+        overflow: scroll;
+        overflow-x: hidden;
+        overflow-y: hidden;
+    }
+
+    .ChatContainer-Input button {
+        width: 20%;
+        height: 50%;
+        padding: 0vh 1vw;
+        font-size: 1.5em;
+        background-color: rgb(85, 96, 128);
+        color: white;
+        transition: 350ms;
+    }
+}
+
+@media (min-width: 1001px) {
+    .ChatContainer-Input {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: center;
+        margin-top: 1.5%;
+        padding: 2vh 2vw;
+        background-color: white;
+    }
+
+    .ChatContainer-Input textarea {
+        width: 78%;
+        min-height: 50%;
+        padding: 2vh 1vw;
+        resize: none;
+        font-size: 1.5em;
+        border: 1px solid lightgrey;
+        border-radius: 5px;
+    }
+
+    .ChatContainer-Input button {
+        width: 7%;
+        height: 40%;
+        padding: 0vh 1vw;
+        margin-left: 1vw;
+        font-size: 1.5em;
+        background-color: rgb(85, 96, 128);
+        color: white;
+        transition: 350ms;
+    }
+}
+
+.ChatContainer-Input textarea:hover {
+    cursor: default;
 }

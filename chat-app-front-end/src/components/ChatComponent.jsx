@@ -41,16 +41,14 @@ function ChatComponent() {
                 </div>
 
                 <div className='ChatContainer-Body'>
-                    {
-                        chat.map((chat, index) => {
-                            if(chat.user === userName) {
-                                return <Message type='sent' key={index} userName={chat.user} message={chat.message}/>
-                            }
-                            else if(chat.user !== userName) {
-                                return <Message type='received' key={index} userName={chat.user} message={chat.message}/>
-                            }
-                        })
-                    }
+                    {chat.map((chat, index) => {
+                        if(chat.user === userName) {
+                            return <Message type='sent' key={index} userName={chat.user} message={chat.message}/>
+                        }
+                        else {
+                            return <Message type='received' key={index} userName={chat.user} message={chat.message}/>
+                        }
+                    })}
                 </div>
 
                 <div className='ChatContainer-Input'>

@@ -17,42 +17,54 @@
     flex-direction: row-reverse;
 }
 
-#Message-Content {
-    max-width: 50%;
-    border-radius: 20px;
-    margin: 0vh 1vw;
-    padding: 0vh 4vw;
+.sentMessage-Content {
+    background-color: rgb(85, 96, 128);
+    color: rgb(231, 236, 237);
 }
 
-.sentMessage-Content {
-    background-color: rgb(159, 174, 255);
+.sentMessage-Content :last-child {
+    color: white;
 }
 
 .receivedMessage-Content {
-    background-color: lightgray;
+    text-align: left;
+    background-color: rgb(231, 236, 237);
+    color: rgb(85, 96, 128);
 }
+
+.receivedMessage-Content :last-child {
+    color: black;
+ }
 
 .Message-Username {
     font-weight: bold;
 }
 
-@media (max-width: 700px) {
-    img {
-        width: 12vw;
-        height: 12vw;
+@media (max-width: 1000px) {
+    #Message-Content {
+        max-width: 50%;
+        min-width: 12%;
+        border-radius: 20px;
+        margin: 0vh 1vw;
+        padding: 2vh 4vw 2vh 4vw;
     }
-}
 
-@media (min-width: 701px) and (max-width: 1000px) {
     img {
-        width: 10vw;
-        height: 10vw;
+        width: 7vw;
+        height: 7vw;
     }
 }
 
 @media (min-width: 1001px) {
+    #Message-Content {
+        max-width: 50%;
+        border-radius: 20px;
+        margin: 0vh 1vw;
+        padding: 2vh 1vw 2vh 1vw;
+    }
+
     img {
-        width: 5vw;
-        height: 5vw;
+        width: 2vw;
+        height: 2vw;
     }
 }

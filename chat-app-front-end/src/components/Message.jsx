@@ -12,7 +12,7 @@ function Message(props) {
                 <div className={className} id='Message'>
                     <img src={profile} alt='profile picture'/>
                     <div className={`${className}-Content`} id='Message-Content'>
-                        {className === 'sentMessage' ? <p className='Message-Username'>Me</p> : <p className='Message-Username'>{props.userName}</p>}
+                        {className === 'sentMessage' ? '' : <p className='Message-Username'>{props.userName}</p>}
                         <p className='Message-Text'>{props.message}</p>
                     </div>
                 </div>
