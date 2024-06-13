@@ -13,7 +13,7 @@ function Message(props) {
                     <img src={profile} alt='profile picture'/>
                     <div className={`${className}-Content`} id='Message-Content'>
                         {className === 'sentMessage' ? '' : <p className='Message-Username'>{props.userName}</p>}
-                        <p className='Message-Text'>{props.message}</p>
+                        <pre className='Message-Text'>{props.message}</pre>
                     </div>
                 </div>
             </div>
